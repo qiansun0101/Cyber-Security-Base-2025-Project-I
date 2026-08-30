@@ -101,7 +101,7 @@ def comments(request):
     comments_from_db = Comment.objects.select_related('author').order_by('-created_at')
     display_comments = []
     for comment in comments_from_db:
-        # flaw: A7 Cross-Site Scripting (Stored XSS)
+        # flaw 5: A7 Cross-Site Scripting (Stored XSS)
         # mark_safe tells Django that attacker-controlled text is trusted HTML,
         # so a stored <script> element is rendered and executed in the browser.
         display_text = mark_safe(comment.text)
