@@ -1,0 +1,21 @@
+{% extends 'bank/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Vulnerable Bank Demo</h1>
+<p>This deliberately vulnerable local application demonstrates five OWASP Top 10 (2017) categories.</p>
+{% if user.is_authenticated %}
+<div class="card">
+    Logged in as <strong>{{ user.username }}</strong>.
+    Your normal account URL is <code>/account/{{ user.username }}/</code>.
+</div>
+{% else %}
+<p>Please log in first.</p>
+{% endif %}
+<ul>
+    <li>A1 SQL Injection: Note search</li>
+    <li>A2 Broken Authentication: Login</li>
+    <li>A5 Broken Access Control / IDOR: Account URL</li>
+    <li>A6 Security Misconfiguration: Crash demo with DEBUG=True</li>
+    <li>A7 Cross-Site Scripting: Stored comments</li>
+</ul>
+{% endblock %}

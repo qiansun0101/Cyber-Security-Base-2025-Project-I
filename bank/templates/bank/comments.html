@@ -1,0 +1,20 @@
+{% extends 'bank/base.html' %}
+{% block title %}Comments{% endblock %}
+{% block content %}
+<h1>Public comments</h1>
+<form method="post">
+    {% csrf_token %}
+    <label>Comment</label>
+    <textarea name="text" rows="3" required></textarea>
+    <button type="submit">Post</button>
+</form>
+<h2>Recent comments</h2>
+{% for comment in comments %}
+<div class="card">
+    <strong>{{ comment.author }}</strong><br>
+    {{ comment.text }}
+</div>
+{% empty %}
+<p>No comments yet.</p>
+{% endfor %}
+{% endblock %}

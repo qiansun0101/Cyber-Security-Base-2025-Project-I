@@ -1,0 +1,24 @@
+{% extends 'bank/base.html' %}
+{% block title %}Note Search{% endblock %}
+{% block content %}
+<h1>Private note search</h1>
+<p>Normal example: <code>shopping</code>.</p>
+<form method="get">
+    <label>Exact note title</label>
+    <input name="q" value="{{ q }}">
+    <button type="submit">Search</button>
+</form>
+{% if q %}
+<h2>Results</h2>
+{% if results %}
+<table>
+    <tr><th>Owner</th><th>Title</th><th>Body</th></tr>
+    {% for row in results %}
+    <tr><td>{{ row.owner }}</td><td>{{ row.title }}</td><td>{{ row.body }}</td></tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No results.</p>
+{% endif %}
+{% endif %}
+{% endblock %}
