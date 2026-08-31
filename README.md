@@ -4,8 +4,8 @@ This is a deliberately vulnerable **local educational Django application** for c
 
 1. **A1 Injection - SQL Injection**
 2. **A2 Broken Authentication**
-3. **A5 Broken Access Control / IDOR**
-4. **A6 Security Misconfiguration - Django DEBUG**
+3. **A5 Broken Access Control**
+4. **A6 Security Misconfiguration: Django DEBUG**
 5. **A7 Cross-Site Scripting (XSS)**
 
 The vulnerable code is active. The corresponding fixes are included immediately next to the flaws as **commented-out code**, so the repository can contain both the flaw and its fix in one version.
